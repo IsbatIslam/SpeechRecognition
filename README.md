@@ -28,7 +28,7 @@ The feature we want to extract is Mel-frequency coefficients (MFCC). But to unde
 
 
 ### Fourier Transforms:
-<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/f58b11a6-8fd1-45df-baff-ba296d7563f8" width="100" height="100">
+<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/f58b11a6-8fd1-45df-baff-ba296d7563f8">
 
 The formula above is the Complex Fourier Transform equation where:
 
@@ -49,16 +49,16 @@ I will try to explain the equation piece by piece:
 As seen in the equation, we then multiply the unit circle with the signal **g(t)**, which wraps around the waveform around the unit circle, which looks something like this:
 
 
-<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/780a6722-517e-48b9-98d9-30ce01adb31b" width="100" height="100">
+<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/780a6722-517e-48b9-98d9-30ce01adb31b">
 
 As we see in the above figure, the signal above is multiplied by the unit circle giving us a flower-like figure in the imaginary plane. The computer generates such unit circles at many frequencies producing many pure tones that wrap around the signal in the same manner. When a pure tone is present in the waveform, the unit circle x the waveform =
-<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/bcd5a3e2-a5c1-41f8-b87b-dcf00734394e" wigth="100" height="100">
+<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/bcd5a3e2-a5c1-41f8-b87b-dcf00734394e">
 
 
 In the above figure, the e^(-i2πft) and the g(t) wave signal match, giving us a "simple" image signal. Whenever the image is "stable" like the image here, it means that the complex number found, ĝ(f) representing a specific phase and magnitude (the red dot), is present in the signal. The green spot is simply the red spot after applying the integral. The integral sums up all of the continuous points of the petal-like shape and averages them, giving the red spot, which is like the "center of mass." The green spot is the red spot times the number of times the number of time the frequency appears throughout the time domain. The more distance between the green dot and the origin, the more of that specific frequency is in the waveform.
 
 
-<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/92f75aa2-3871-4d50-8c31-a044e2b73364" wigth="100" height="100">
+<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/92f75aa2-3871-4d50-8c31-a044e2b73364">
 
 Graphics from Elan Ness-Cohn, site: https://sites.northwestern.edu/elannesscohn/2019/07/30/developing-an-intuition-for-fourier-transforms/
 
@@ -75,7 +75,7 @@ A keyword here is logarithm. We convert our signal into a log-spectrogram becaus
 
 Humans also do not perceive frequency linearly, but logarithmically. Indeed, the difference between 200Hz - 300Hz seems less audibly noticeable than a difference between 1500Hz - 1700Hz, despite being the same difference. Thus, to get a perceptually accurate pitch (frequency) representation, we apply a Mel-Filter bank on our log-amplitude spectrogram to compensate for that.
 
-<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/eccc91bb-0b88-462e-82a4-b37635288425" wigth="100" height="100">
+<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/eccc91bb-0b88-462e-82a4-b37635288425">
 
 ###Mel-Frequency Cepstrum Coefficient
 
@@ -91,7 +91,7 @@ Speech first comes through your vocals folds and appears as glottal pulses. Then
 If we were to trace the speech signal, we would have the first graph of the following image:
 
 
-<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/c5d05a4c-10ef-4b75-b3a7-da949e705ecc" wigth="200" height="200">
+<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/c5d05a4c-10ef-4b75-b3a7-da949e705ecc">
 Link for image: https://www.dsprelated.com/freebooks/sasp/Spectral_Envelope_Examples.html
 
 The first image is a simple time domain. The second graph is the frequency domain of the initial signal.  We can divide the frequenciy domain into its glottal pulse components, and its vocal tract components, called the **spectral detail** and the **spectral envelope**, respectively. In the second graph, if we were to trace a line relating all the peaks, we'd get the spectral envelope, the highest frequencies emitted which contains the information about pitch and phonetics. If we were to subtract the spectral envelope from the frequency domain, we'd only be left with dark zig-zags of the signal at very high frequency, which is the spectral detail.
@@ -105,7 +105,7 @@ log(X) = log(G) + log(V)
 
 From this equation, we can separate both signals and end up solely with the spectral envelope, and the cepstrum helps us do so. But how?
 
-<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/27599c55-297b-4909-8c03-290a9608a8c1" wigth="200" height="200">
+<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/27599c55-297b-4909-8c03-290a9608a8c1">
 
 Link for image: https://www.researchgate.net/figure/Short-time-cepstrum-with-signal-to-noise-ratio-SNR-0-dB-and-reverberation-time-T-60_fig6_224009858
 
@@ -113,9 +113,9 @@ A cepstrum is a spectrum of a spectrum. Scientists decided to do a wordplay with
 
 ###Visualizing signals and code validation
 
-<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/ed98d9d1-df16-444a-8b8a-da82422fd00d" wigth="150" height="150">
+<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/ed98d9d1-df16-444a-8b8a-da82422fd00d">
 The test audio "A4 61 key Piano.wav" is the test file to validate the code we used for the first term project. The fundamental frequency is supposed to be 440hz, and looking at the Mel-spectrogram here, the peak frequency appears to be that also. Another thing to consider is that the Mel-spectrogram uses the logarithmic frequency scale. But before 1000hz, the sound perception is generally linear, as obtained in our spectrogram. However, we can see the frequencies curve logarithmically as we climb higher frequencies (the scale at the left doubles between each increment, however the distance between the colored bars do not double as well) suggesting that the Mel-spectrogram is accurate. Not to mention, the decibel scale seems fairly accurate as well as the only intensities shown are by the 440hz note and its harmonics and everything is in dB's. The rest is black, as expected since there are no other noise in the pitch perfect A4 piano sample.
-<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/9701ea6d-0a84-417e-ae8c-8ac41cbb91ef" wigth="150" height="150">
+<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/9701ea6d-0a84-417e-ae8c-8ac41cbb91ef">
 
 The above is the MFCC of that signal. We see a strong signal around 1.7 seconds which is what we expect, as it fades away through time. The remaining coefficients are almost all 0, which is expected as the audio is silent. Therefore, the MFCC extractor works well and can be used to verify data later on. However, another thing to notice is the blue columns on the bottom. That column is simply a constant value added that does not contribute to the overall shape of the spectrum, it can be ignored.
 
@@ -138,7 +138,7 @@ Firstly I have to collect data. Since I wanted to identify any digit between 1 t
 I had to record samples of 1 second exactly, so I got samples of 2 seconds and trimmed each sample to 1 second, with only my voice waveforms in the audio. Then I named them like "one.001.wav" to keep track of them as I added them into their respective folder for loop-sorting code that I will implement.
 
 The JSON data set looks like this:
-<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/17f72cd6-573b-4833-af9d-9284d9c76770" wigth="150" height="150">
+<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/17f72cd6-573b-4833-af9d-9284d9c76770">
 
 When I do the MFCC of the audio file one.001.wav on my VsCode program, the extract_MFCCs(), for the first columns of MFCCs, I get:
 '''
@@ -171,36 +171,36 @@ SR/hop_lenght = 22 050/512 = 43.1 --> 44 columns in a row
 Here are one example per digit that I've said as I compare between them. I did not present more because they all generally follow the same pattern (four001.wav looks very similar to four013.wav for instance), so I don't want to extend the length of the presentation needlessely.
 
 This is signal one:
-<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/18eb1a15-0016-4c2c-9fa6-9587bda5fdc3" width="150" height="150">
+<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/18eb1a15-0016-4c2c-9fa6-9587bda5fdc3">
 
 This is signal two:
-<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/8563bfdf-8f0e-4a70-94b9-ce98a1b819e6" width="150" height="150">
+<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/8563bfdf-8f0e-4a70-94b9-ce98a1b819e6">
 
 Disregarding the black and blue colour palette difference, notice that the signal when I say "one" seems to increase as time goes by before sharply declining, whereas when I say "two," the signal starts high. This is a difference that the computer must be able to pick up on to differentiate between both.
 
 This is signal three:
-<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/c2e2b867-395a-4274-833e-e973342c90dc" width="150" height="150">
+<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/c2e2b867-395a-4274-833e-e973342c90dc">
 
 This is the signal five:
-<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/0a65ef01-390c-4eed-b7be-feb7aabbcbf8" width="150" height="150">
+<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/0a65ef01-390c-4eed-b7be-feb7aabbcbf8">
 
 In this case, the difference between three and five seems to really show on the cloudy surface on top of three, whereas for five, the signal simply seems to start more intense than when we say three in the beginning.
 
 This is signal 4:
-<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/df8cdd5e-d166-486e-9a1a-b9a828733e65" width="150" height="150">
+<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/df8cdd5e-d166-486e-9a1a-b9a828733e65">
 
 
 Here are the MFCC's of the corresponding signals:
 
-<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/1f240ffb-3726-4797-add5-942e7ee6df0e" width="150" height="150">
+<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/1f240ffb-3726-4797-add5-942e7ee6df0e">
 
-<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/bb7bd5b8-a84a-40b1-8855-da288f2264d0" width="150" height="150">
+<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/bb7bd5b8-a84a-40b1-8855-da288f2264d0">
 
-<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/42c1d910-6407-4d42-b1fa-d3760c4bb9dc" width="150" height="150">
+<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/42c1d910-6407-4d42-b1fa-d3760c4bb9dc">
 
-<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/29ae1c2f-6508-4fe4-b4d1-bc248c901dcf" width="150" height="150">
+<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/29ae1c2f-6508-4fe4-b4d1-bc248c901dcf">
 
-<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/2be41a75-d55f-4976-9988-dcfad1ef66c1" width="150" height="150">
+<img src="https://github.com/IsbatIslam/SpeechRecognition/assets/106777293/2be41a75-d55f-4976-9988-dcfad1ef66c1">
 
 By looking at MFCCs, the differences that we've seen on the Mel-spectrograms are hardly discernable in the MFCCs, especially for human eyes. However, each rectangular square represents an MFCC coefficient which the computer will see as a vector in 3-dimensions (#rows,#columns, depth), where rows would be 22050 Hz/ 512 ms = 44 rows, 13 columns through a monodimensional signal (44,13,1). These vectors will let the computer extract the prevalent features of each digit, including its timbre and formants.
 
